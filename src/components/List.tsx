@@ -10,15 +10,23 @@ interface IProps {
     name: string
 }
 
-
 class List extends React.Component<IProps, {}> {
+    
+    // Rendering multiple items
+    public renderItems = () => {
+        const itemListJSX = []
+        for (const x of this.props.itemList) {
+            itemListJSX.push(<Item details={x} />)
+        }
+        return itemListJSX;
+    }
 
     public render() {
         return (
         <div>
             <p>{this.props.name}</p>
 
-            <Item />
+            {this.renderItems()}
         </div>
         );
     }

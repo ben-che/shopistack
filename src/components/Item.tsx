@@ -1,9 +1,15 @@
 import * as React from 'react';
 
-class Item extends React.Component {
+import IToDoModel from "./../models/ToDoModel"
+
+interface IProps {
+  details : IToDoModel
+}
+
+class Item extends React.Component<IProps, {}> {
   public render() {
     return (
-      <div> <p>test</p> </div>
+      <div> <p>{this.props.details.description}</p> </div>
     );
   }
 }
