@@ -5,7 +5,7 @@ import Item from "./Item";
 
 interface IProps {
     id:number
-    itemList : [ToDoModel]
+    itemList : ToDoModel[]
 }
 
 

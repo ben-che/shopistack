@@ -14,7 +14,8 @@ import IListModel from './models/ListModel';
 
 // Defining state as an Array of ListModels, which then contain To Do
 interface IState {
-  list: [IListModel]
+  activeListId : number
+  list: IListModel[]
 }
 
 class App extends React.Component<{}, IState> {
@@ -22,6 +23,7 @@ class App extends React.Component<{}, IState> {
   constructor(props: {}) {
     super(props)
     this.state = {
+      activeListId : 1,
       list: [
         {
           id: 1,
@@ -29,8 +31,21 @@ class App extends React.Component<{}, IState> {
             description:"Test the to do list",
             done:false,
             id:0,
+          },
+          {
+            description:"Add successful modifications list",
+            done:false,
+            id:1,
           }]
-        }
+        },
+        {
+          id: 2,
+          items:[{
+            description:"Wash dishes",
+            done:false,
+            id:0,
+          }]
+        },
       ]
     }
   }
