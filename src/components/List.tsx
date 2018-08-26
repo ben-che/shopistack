@@ -1,21 +1,22 @@
 import * as React from 'react';
 
-import ToDoModel from '../models/ToDoModel';
+import IToDoModel from '../models/ToDoModel';
 import Item from "./Item";
 
+// Using an interface to type props
 interface IProps {
     id:number
-    itemList : ToDoModel[]
+    itemList : IToDoModel[]
+    name: string
 }
 
 
 class List extends React.Component<IProps, {}> {
-    
 
     public render() {
         return (
         <div>
-            {this.props.itemList[0].description}
+            <p>{this.props.name}</p>
 
             <Item />
         </div>
