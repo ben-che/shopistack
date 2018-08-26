@@ -1,6 +1,6 @@
-import ToDoModel from './ToDoModel'
+import IToDoModel from './ToDoModel'
 
-export default interface ListModel {
+export default interface IListModel {
     id: number
-    items : Array<ToDoModel>
+    items : [IToDoModel]
 }

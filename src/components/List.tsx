@@ -1,15 +1,23 @@
 import * as React from 'react';
+
+import ToDoModel from '../models/ToDoModel';
 import Item from "./Item";
 
-// React components that use props need an Interface
+interface IProps {
+    id:number
+    itemList : [ToDoModel]
+}
 
-class List extends React.Component {
+
+class List extends React.Component<IProps, {}> {
     
 
     public render() {
         return (
         <div>
+            {this.props.itemList[0].description}
 
+            <Item />
         </div>
         );
     }
