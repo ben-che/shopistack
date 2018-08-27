@@ -4,7 +4,7 @@ import List from "./components/List";
 import IListModel from './models/ListModel';
 // import IToDoModel from './models/ToDoModel';
 
-// HELPFUL LINTING:
+// HELPFUL LINTING DISABLER:
     // tslint:disable-next-line
 
 // Data structures of To Do items will go as following:
@@ -116,10 +116,26 @@ class App extends React.Component<{}, IState> {
     })
   }
 
+  // updates the active list to the list that was just clicked
+    // when the function is called, takes in an argument of what the new ID is
+  public updateActiveList = (id:number) => {
+    this.setState({ activeListId : id})
+  }
+
+  // render methods
+  public renderListNames = () => {
+    const listJSX = [];
+    for (const x of this.state.list) {
+      listJSX.push(<p>{x.name}</p>)
+    }
+    return listJSX;
+  }
 
   public render() {
     return (
       <div className="App">
+      <h2>Current Lists</h2>
+      {this.renderListNames()}
         <List id={this.state.activeListId}
               itemList = {this.state.activeList.items}
               name = {this.state.activeList.name}

@@ -9,7 +9,9 @@ interface IProps {
 class Item extends React.Component<IProps, {}> {
   public render() {
     return (
-      <div> <p>{this.props.details.description}</p> </div>
+      <div> 
+        <p>{this.props.details.description}</p> 
+      </div>
     );
   }
 }
