@@ -123,19 +123,28 @@ class App extends React.Component<{}, IState> {
   }
 
   // render methods
+  // this renders all list names and allows users to click on a list to change active list
   public renderListNames = () => {
     const listJSX = [];
     for (const x of this.state.list) {
-      listJSX.push(<p>{x.name}</p>)
+      // disabling linting for the onClick handler - lambdas only affect performance in React
+      //  when it comes to a ShouldComponentUpdate method
+      // src: https://stackoverflow.com/questions/43968779/are-lambda-in-jsx-attributes-an-anti-pattern/43968902
+      // tslint:disable-next-line
+      listJSX.push(<p onClick={() => this.updateActiveList(x.id)}>{x.name}</p>)
     }
     return listJSX;
   }
+
+  // this method 
 
   public render() {
     return (
       <div className="App">
       <h2>Current Lists</h2>
       {this.renderListNames()}
+
+      <h2>Active list's to do items</h2>
         <List id={this.state.activeListId}
               itemList = {this.state.activeList.items}
               name = {this.state.activeList.name}
