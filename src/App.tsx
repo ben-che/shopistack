@@ -122,6 +122,11 @@ class App extends React.Component<{}, IState> {
     this.setState({ activeListId : id})
   }
 
+  // this method changes the status of the to do item
+  public updateItemStatus = (id:number) => {
+    // update item status on active list as well as total list
+  }
+
   // render methods
   // this renders all list names and allows users to click on a list to change active list
   public renderListNames = () => {
@@ -136,7 +141,7 @@ class App extends React.Component<{}, IState> {
     return listJSX;
   }
 
-  // this method 
+  
 
   public render() {
     return (
